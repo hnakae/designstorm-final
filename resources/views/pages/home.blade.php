@@ -1,11 +1,10 @@
 @extends('layouts/main')
 
+@section('title')
+  Design Storm - Inspiration for Developers
+@endsection
+
 @section('content')
-<header>
-  <div class="container"><a class="logo" href="index.html">Design Storm</a>
-    <nav><a href="pages/register.html">register</a><a href="pages/login.html">login</a></nav>
-  </div>
-</header>
 <div id="site-section">
   <div class="container">
     <div id="home">

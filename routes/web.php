@@ -15,15 +15,19 @@ Route::get('/', function () {
     return view('pages/home');
 });
 
-Route::get('/login', function () {
-    return view('welcome');
-});
 Route::get('/register', function () {
-    return view('welcome');
+    return view('pages/register');
+});
+Route::get('/login', function () {
+    return view('pages/login');
 });
 Route::get('/results', function () {
-    return view('welcome');
+    return view('pages/results');
 });
 Route::get('/account', function () {
-    return view('welcome');
+    return view('account/dashboard');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

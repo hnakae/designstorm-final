@@ -28,21 +28,23 @@ class PageController extends Controller
       $res = $client->request('GET', "https://api.behance.net/v2/projects", [
         "query" => [
           "q" => $search,
-          "client_id" => "yCQWwt3cYIsMRrkm6clXCyFywg3pkUi7"
+          "client_id" => env('BEHANCE_KEY'),
+          // "yCQWwt3cYIsMRrkm6clXCyFywg3pkUi7"
+          "field" => "web design"
         ]
       ]);
 
 
       $data = $res->getBody();
       $data = json_decode($data);
-      $filteredData = [];
+      $filteredData = $data->projects;
 
-      foreach($data->projects as $project){
-        $fields = $project->fields;
-        if(in_array("UI/UX", $fields) || in_array("web design", $fields)){
-          array_push($filteredData, $project);
-        }
-      }
+      // foreach($data->projects as $project){
+      //   $fields = $project->fields;
+      //   if(in_array("UI/UX", $fields) || in_array("web design", $fields)){
+      //     array_push($filteredData, $project);
+      //   }
+      // }
 
       $user = Auth::user();
       return view('pages/results', compact('user', 'filteredData', 'search'));

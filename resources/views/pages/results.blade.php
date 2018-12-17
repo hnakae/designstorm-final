@@ -25,6 +25,9 @@
                       <div style="position: relative; background: url('{{$project->covers->{'202'} }}') no-repeat center
                       center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size:
                       cover;background-size: cover; height: 200px;">
+                        <div class="add-btn">
+                          <i class="fa fa-check" aria-hidden="true"></i>
+                        </div>
                         {{-- @php
                         $codedUrl = urlencode($project->covers->{'202'})
                         @endphp --}}

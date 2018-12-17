@@ -1,0 +1,39 @@
+#admin-section{
+  #projects{
+
+  }
+  table{
+    display: table;
+    width: 100%;
+    margin: 20px 0;
+
+    thead{
+      background: lightblue;
+
+      th{
+        border: 1px solid #000;
+        color: white;
+      }
+    }
+    tbody{
+      td{
+        border: 1px solid #000;
+        text-align: center;
+
+        .edit-btn{
+          font-size: 12px;
+          padding: 10px 20px;
+          background: green;
+          display: inline-block;
+          border-radius: 3px;
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+    th, td{
+      padding: 10px 20px;
+    }
+  }
+
+}

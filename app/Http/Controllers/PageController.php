@@ -29,7 +29,7 @@ class PageController extends Controller
         "query" => [
           "q" => $search,
           "client_id" => env('BEHANCE_KEY'),
-          // "yCQWwt3cYIsMRrkm6clXCyFywg3pkUi7"
+
           "field" => "web design"
         ]
       ]);

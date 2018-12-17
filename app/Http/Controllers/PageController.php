@@ -29,7 +29,6 @@ class PageController extends Controller
         "query" => [
           "q" => $search,
           "client_id" => env('BEHANCE_KEY'),
-
           "field" => "web design"
         ]
       ]);
@@ -60,7 +59,6 @@ class PageController extends Controller
       // // "&client_id=".env("BEHANCE_KEY")
       // // ."&field=".urlencode("web design"));
       //
-      // $res = $client->request('GET', "https://api.behance.net/v2/projects?q=motorcycle&client_id=yCQWwt3cYIsMRrkm6clXCyFywg3pkUi7");
       //
       //
       // $data = $res->getBody();

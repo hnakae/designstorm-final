@@ -31,4 +31,7 @@ Route::get('/search/{keyword}', 'PageController@search');
 Route::get('/projects/item/{image_info}/add', 'ItemController@create')->middleware('auth');
 Route::get('/projects/item/{image_info}/delete', 'ItemController@destroy')->middleware('auth');
 
+//temporary
+Route::get('/projects/addimage/{id}', 'ProjectController@addImage');
+
 Auth::routes();

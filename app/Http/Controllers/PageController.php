@@ -20,75 +20,27 @@ class PageController extends Controller
 
 
     public function results(Request $request){
-
       $search = $request->search;
 
+      // return redirect('/search/'.$search);
+      return redirect('/search/'.urlencode($search));
+    }
+
+    public function search(Request $request, $keyword){
       $client = new Client(['verify' => 'C:\MAMP\bin\php\php7.2.1\cacert.pem']);
 
       $res = $client->request('GET', "https://api.behance.net/v2/projects", [
         "query" => [
-          "q" => $search,
+          "q" => $keyword,
           "client_id" => env('BEHANCE_KEY'),
-          "field" => "web design"
+          "field" => "graphic design"
         ]
       ]);
-
-
       $data = $res->getBody();
       $data = json_decode($data);
       $filteredData = $data->projects;
 
-      // foreach($data->projects as $project){
-      //   $fields = $project->fields;
-      //   if(in_array("UI/UX", $fields) || in_array("web design", $fields)){
-      //     array_push($filteredData, $project);
-      //   }
-      // }
-
       $user = Auth::user();
-      return view('pages/results', compact('user', 'filteredData', 'search'));
-    }
-
-    public function search(Request $request, $keyword){
-
-      // $client = new Client(['verify' => 'C:\MAMP\bin\php\php7.2.1\cacert.pem']);
-      //
-      // // $res = $client->request('GET',
-      // // "https://api.behance.net/v2/projects?q="
-      // // .urlencode($keyword).
-      // // "&client_id=".env("BEHANCE_KEY")
-      // // ."&field=".urlencode("web design"));
-      //
-      //
-      //
-      // $data = $res->getBody();
-      // // return $data;
-      //
-      // $data = json_decode($data);
-      // $filteredData = [];
-      //
-      // foreach($data->projects as $project){
-      //   $fields = $project->fields;
-      //   if(in_array("UI/UX", $fields) || in_array("web design", $fields)){
-      //     array_push($filteredData, $project);
-      //   }
-      // }
-      //
-      // // return count($filteredData);
-      //
-      //
-      // // $filteredData = $data->projects;
-      // //
-      // // $itemsArray = Project::where('user_id', Auth::id())->where('active', 1)->first();
-      // // $itemsArray = $itemsArray->items;
-      // // $arrayInfo = [];
-      // // foreach($itemsArray as $image) {
-      // //   array_push($arrayInfo, $image->image_info);
-      // // }
-      // // return $filteredData;
-      //
-      // $user = Auth::user();
-      // return view('pages/results', compact('user', 'filteredData'));
-      // return view('pages/results', compact('user', 'filteredData', 'keyword', 'arrayInfo'));
+      return view('pages/results', compact('user', 'filteredData', 'keyword'));
     }
 }

@@ -12,7 +12,7 @@
           <div class="search-container">
             <form class="" action="/results" method="post">
               {{ csrf_field() }}
-              <input class="search" type="text" value="{{$search}}" placeholder="Search" name="search">
+              <input class="search" type="text" value="{{$keyword}}" placeholder="Search" name="keyword">
               {{-- {{$keyword}} --}}
             </form>
           </div>
@@ -25,9 +25,11 @@
                       <div style="position: relative; background: url('{{$project->covers->{'202'} }}') no-repeat center
                       center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size:
                       cover;background-size: cover; height: 200px;">
+                      <a href="/projects/addimage/{{$project->id}}">
                         <div class="add-btn">
                           <i class="fa fa-check" aria-hidden="true"></i>
                         </div>
+                      </a>
                         {{-- @php
                         $codedUrl = urlencode($project->covers->{'202'})
                         @endphp --}}
@@ -44,7 +46,7 @@
                   </div>
                 @endforeach
               @else
-                <h1>No Results</h1>
+                <h1 class="no-results">No Results</h1>
               @endif
             </div>
           </div>

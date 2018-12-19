@@ -13,7 +13,6 @@
             <form class="" action="/results" method="post">
               {{ csrf_field() }}
               <input class="search" type="text" value="{{$keyword}}" placeholder="Search" name="search">
-              {{-- {{$keyword}} --}}
             </form>
           </div>
           <div class="boxes">
@@ -25,21 +24,23 @@
                       <div style="position: relative; background: url('{{$item->covers->{'202'} }}') no-repeat center
                       center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size:
                       cover;background-size: cover; height: 200px;">
-                      <a href="/projects/item/{{$item->id}}/add/{{$item->covers->{'202'} }}">
+                      {{-- <a href="/projects/item/{{$item->id}}/add/{{$item->covers->{'202'} }}">
                         <div class="add-btn">
                           <i class="fa fa-check" aria-hidden="true"></i>
                         </div>
-                      </a>
-                        {{-- @php
+                      </a> --}}
+                        @php
                         $codedUrl = urlencode($item->covers->{'202'})
                         @endphp
-                        <a href="/projects/item/{{ $item->id }}/add/{{ $codedUrl }}">
+                        <a href="/projects/item/{{ $item->id }}/add?image_url={{ $codedUrl }}">
                           <div class="add-btn
-                          @if(in_array($item->id, $arrayInfo))
-                            active
-                          @endif">
-                          <i class="fa fa-check" aria-hidden="true"></i></div>
-                        </a> --}}
+                            {{-- @if(in_array($item->id, $arrayInfo))
+                              active
+                            @endif --}}
+                            ">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                          </div>
+                        </a>
                       </div>
                       {{-- <h4>{{$project->name}}</h4> --}}
                     </div>

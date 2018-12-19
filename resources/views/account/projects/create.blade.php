@@ -14,7 +14,7 @@
       <div class="box">
         <div class="row">
           <div class="col-md-10">
-            <form class="" action="/account/projects" method="POST">
+            <form class="" action="/account/projects" method="post">
               {{ csrf_field() }}
               <div class="row">
                 <div class="col-md-6">
@@ -25,10 +25,10 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <input type="text" name="title" value="">
+                  <input type="text" name="title">
                 </div>
               </div>
-              <div class="row">
+              {{-- <div class="row">
                 <div class="col-md-6">
                   <label for="title">
                     Active
@@ -42,7 +42,7 @@
                       <option value="1">Yes</option>
                     </select>
                   </div>
-              </div>
+              </div> --}}
               <button type="submit" name="button">Save</button>
             </form>
           </div>

@@ -28,10 +28,11 @@ Route::get('/search', 'PageController@index');
 Route::get('/search/{keyword}', 'PageController@search');
 
 //Items
-Route::get('/projects/item/{image_info}/add', 'ItemController@create')->middleware('auth');
+//Route::get('/projects/item/{image_info}/add', 'ItemController@create')->middleware('auth');
 Route::get('/projects/item/{image_info}/delete', 'ItemController@destroy')->middleware('auth');
 
 //temporary
-Route::get('/projects/addimage/{id}', 'ProjectController@addImage');
+Route::get('/projects/item/{id}/add', 'ItemController@addImage')->middleware('auth');
+
 
 Auth::routes();

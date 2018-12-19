@@ -12,30 +12,30 @@
           <div class="search-container">
             <form class="" action="/results" method="post">
               {{ csrf_field() }}
-              <input class="search" type="text" value="{{$keyword}}" placeholder="Search" name="keyword">
+              <input class="search" type="text" value="{{$keyword}}" placeholder="Search" name="search">
               {{-- {{$keyword}} --}}
             </form>
           </div>
           <div class="boxes">
             <div class="row">
               @if(count($filteredData) >= 1)
-                @foreach ($filteredData as $project)
+                @foreach ($filteredData as $item)
                   <div class="col-md-3">
                     <div class="box">
-                      <div style="position: relative; background: url('{{$project->covers->{'202'} }}') no-repeat center
+                      <div style="position: relative; background: url('{{$item->covers->{'202'} }}') no-repeat center
                       center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size:
                       cover;background-size: cover; height: 200px;">
-                      <a href="/projects/addimage/{{$project->id}}">
+                      <a href="/projects/item/{{$item->id}}/add/{{$item->covers->{'202'} }}">
                         <div class="add-btn">
                           <i class="fa fa-check" aria-hidden="true"></i>
                         </div>
                       </a>
                         {{-- @php
-                        $codedUrl = urlencode($project->covers->{'202'})
-                        @endphp --}}
-                        {{-- <a href="/projects/item/{{ $project->id }}/add?image_url={{ $codedUrl }}">
+                        $codedUrl = urlencode($item->covers->{'202'})
+                        @endphp
+                        <a href="/projects/item/{{ $item->id }}/add/{{ $codedUrl }}">
                           <div class="add-btn
-                          @if(in_array($project->id, $arrayInfo))
+                          @if(in_array($item->id, $arrayInfo))
                             active
                           @endif">
                           <i class="fa fa-check" aria-hidden="true"></i></div>

@@ -44,9 +44,8 @@
                       </a>
                     </td>
                     <td>
-                      <a
-                        href="/account/projects/{{$project->id}}/edit" class="edit-btn">Edit
-                      </a>
+                      {{-- <a href="/account/projects/{{$project->id}}/edit" class="edit-btn">Edit</a> --}}
+                      <a href="/account/projects/id/edit" class="edit-btn">Edit</a>
                     </td>
                   </tr>
                 @endforeach

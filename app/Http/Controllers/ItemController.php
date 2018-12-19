@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
+    public function addImage(){
+      return back();
+    }
+
     public function create(Request $request, $image_info){
       $saveData = [
         "image_info" => $image_info,
         "image_url" => $request->image_url,
-        "project_id" => 1 
+        "project_id" => 1
       ];
       //eloquent
       $item = Item::create($saveData);

@@ -12,24 +12,21 @@ class ProjectController extends Controller
       $this->middleware('auth');
     }
 
-    public function addImage(){
-      return back();
-    }
-
     public function index(){
       $projects = Project::where('user_id', Auth::id())->get();
 
       return view('account/projects/index', compact('projects'));
     }
+
     public function create(){
       return view('account/projects/create');
     }
+
     public function store(Request $request){
       $project = new Project();
       // if($request->active == 1){
       //   Project::where('user_id', Auth::id())->where('active', 1)->update(["active" => 0]);
       // }
-
       $project::create([
         "title" => $request->title,
         "user_id" => Auth::id()
@@ -51,6 +48,7 @@ class ProjectController extends Controller
 
       return view('account/projects/edit', compact('project'));
     }
+
     public function update(Request $request, $id){
       // if($request == 1){
       //   Project::where('user_id', Auth::id())->where('active', 1)->update(["active" => 0]);
@@ -62,6 +60,7 @@ class ProjectController extends Controller
 
       return back();
     }
+
     public function destroy($id){
       $project = Project::where('id', $id)->first();
       if($project->user_id == Auth::id()){

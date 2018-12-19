@@ -37,6 +37,7 @@ class ProjectController extends Controller
     }
 
     public function show($id){
+      //first is from Eloquent
       $project = Project::where('id', $id)->first();
 
       return view('account/projects/show', compact('project'));

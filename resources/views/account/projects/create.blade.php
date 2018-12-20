@@ -28,7 +28,7 @@
                   <input type="text" name="title">
                 </div>
               </div>
-              {{-- <div class="row">
+              <div class="row">
                 <div class="col-md-6">
                   <label for="title">
                     Active
@@ -42,7 +42,7 @@
                       <option value="1">Yes</option>
                     </select>
                   </div>
-              </div> --}}
+              </div>
               <button type="submit" name="button">Save</button>
             </form>
           </div>

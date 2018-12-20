@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable = ['title', 'user_id'];
+    protected $fillable = ['title', 'user_id', 'active'];
 
     public function items(){
       return $this->hasMany('App\Item');

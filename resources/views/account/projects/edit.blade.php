@@ -33,6 +33,26 @@
                   <input type="text" name="title" value="{{$project->title}}">
                 </div>
               </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="title">
+                    Active
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <select name="active">
+                    @if($project->active == 0)
+                      <option value="0" selected>No</option>
+                      <option value="1">Yes</option>
+                    @else
+                      <option value="0">No</option>
+                      <option value="1" selected>Yes</option>
+                    @endif
+                  </select>
+                </div>
+              </div>
               <div class="img-section">
                 <div class="row">
                   @foreach ($project->items as $item)

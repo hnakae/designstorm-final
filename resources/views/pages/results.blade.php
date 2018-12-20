@@ -34,10 +34,10 @@
                         @endphp
                         <a href="/projects/item/{{ $item->id }}/add?image_url={{ $codedUrl }}">
                           <div class="add-btn
-                            {{-- @if(in_array($item->id, $arrayInfo))
+                            @if(in_array($item->id, $arrayInfo))
                               active
-                            @endif --}}
-                            ">
+                            @endif
+                          ">
                             <i class="fa fa-check" aria-hidden="true"></i>
                           </div>
                         </a>

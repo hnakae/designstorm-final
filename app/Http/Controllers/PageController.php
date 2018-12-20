@@ -40,7 +40,15 @@ class PageController extends Controller
       $data = json_decode($data);
       $filteredData = $data->projects;
 
+      $itemsArray = Project::where('user_id', Auth::id())->where('active', 1)->first();
+      $itemsArray = $itemsArray->items;
+      $arrayInfo = [];
+      foreach($itemsArray as $image){
+        array_push($arrayInfo, $image->image_info);
+      }
+
+
       $user = Auth::user();
-      return view('pages/results', compact('user', 'filteredData', 'keyword'));
+      return view('pages/results', compact('user', 'filteredData', 'keyword', 'arrayInfo'));
     }
 }

@@ -9,8 +9,8 @@
   <div class="row">
     <div class="col-md-10">
       <h1>{{$project->title}}</h1>
-      <h6>This is where all your projects are located - @
-      {{$project->user->name}}</h6>
+      <h6>This is where all your projects are located -
+      <strong style="color: red">Author: {{$project->user->name}}</strong></h6>
     </div>
   </div>
   <div class="row">
